@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Цифровой помощник Поли — Журнал</title>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<!-- Шапка сайта / Меню -->
+<header>
+    <div class="logo">Поли</div>
+    <input type="checkbox" id="burger-toggle" />
+    <label for="burger-toggle" class="burger-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </label>
+    <nav>
+        <ul>
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="about.html">О проекте</a></li>
+            <li><a href="team.html">Участники</a></li>
+            <li><a href="journal.html" class="active">Журнал</a></li>
+            <li><a href="resources.html">Ресурсы</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section class="page-heading">
+        <h1>Журнал проекта</h1>
+        <p>Следите за ходом разработки и ключевыми этапами нашего проекта.</p>
+    </section>
+
+    <section class="journal">
+        <!-- Пост №1 -->
+        <article class="post">
+            <div class="post-header">
+                01. Начало работ — постановка задач (20.01.2025)
+            </div>
+            <div class="post-body">
+                <p>
+                    Сегодня мы официально стартовали проект. Провели
+                    мозговой штурм, определили цели и задачи. Обсудили инструменты
+                    и технологии, которые будем использовать.
+                </p>
+                <p>
+                    В том числе решили, что основным каналом взаимодействия для чат-бота станет Телеграм,
+                    так как это наиболее удобный вариант для студентов.
+                </p>
+            </div>
+        </article>
+
+        <!-- Пост №2 -->
+        <article class="post">
+            <div class="post-header">
+                02. Разработка прототипа и тесты (05.02.2025)
+            </div>
+            <div class="post-body">
+                <p>
+                    Создали ранний прототип: базовый функционал отвечать на простые
+                    вопросы о расписании. Провели первые закрытые тесты на небольшой группе студентов.
+                </p>
+                <p>
+                    Обнаружены проблемы с распознаванием формулировок вопросов,
+                    планируем улучшить NLP-модуль.
+                </p>
+            </div>
+        </article>
+
+        <!-- Пост №3 -->
+        <article class="post">
+            <div class="post-header">
+                03. Адаптивная верстка сайта (10.03.2025)
+            </div>
+            <div class="post-body">
+                <p>
+                    Параллельно с чат-ботом сделали дизайн и верстку статического сайта,
+                    где рассказываем о проекте. Добавили анимацию, сделали адаптив
+                    для мобильных устройств.
+                </p>
+                <p>
+                    Продолжаем работу над базой расписания, чтобы охватить все факультеты
+                    и курсы Московского политеха.
+                </p>
+            </div>
+        </article>
+
+    </section>
+</main>
+
+<footer>
+    <p>© 2025 Проектная деятельность — Московский политех</p>
+</footer>
+
+<!-- Подключаем JavaScript -->
+<script src="js/script.js"></script>
+</body>
+</html>
