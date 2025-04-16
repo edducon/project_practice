@@ -273,3 +273,13 @@ footer {
     color: #777;
     margin-top: 2rem;
 }
+
+.toggle-section .post-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .toggle-section.active .post-body {
+    max-height: 200px; /* или auto, но auto анимируется не во всех браузерах */
+  }
