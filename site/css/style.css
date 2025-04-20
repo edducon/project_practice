@@ -1,85 +1,97 @@
-
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box
 }
 
 html {
     font-size: 16px;
-    scroll-behavior: smooth;
+    scroll-behavior: smooth
 }
 
 body {
     font-family: Arial, sans-serif;
     background-color: #f8f8f8;
     color: #333;
-    line-height: 1.5;
+    line-height: 1.5
 }
 
 .fade-in {
-    animation: fadeIn 0.5s forwards ease-in;
+    animation: fadeIn 0.5s forwards ease-in
 }
+
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to   { opacity: 1; }
+    from {
+        opacity: 0
+    }
+    to {
+        opacity: 1
+    }
 }
 
 .fade-out {
-    animation: fadeOut 0.4s forwards ease-in;
+    animation: fadeOut 0.4s forwards ease-in
 }
+
 @keyframes fadeOut {
-    from { opacity: 1; }
-    to   { opacity: 0; }
+    from {
+        opacity: 1
+    }
+    to {
+        opacity: 0
+    }
 }
 
 header {
-    background-color: #ffffff;
+    background-color: #fff;
     border-bottom: 1px solid #ddd;
     display: flex;
     align-items: center;
     justify-content: space-between;
     position: relative;
-    padding: 0.5rem 1rem;
+    padding: .5rem 1rem
 }
 
 .logo {
     font-weight: bold;
     font-size: 1.25rem;
-    color: #005BBB;
+    color: #005BBB
 }
 
 #burger-toggle {
-    display: none;
+    display: none
 }
 
 .burger-menu {
     display: none;
-    cursor: pointer;
+    cursor: pointer
 }
 
 nav ul {
     list-style: none;
     display: flex;
-    gap: 1rem;
+    gap: 1rem
 }
 
 nav a {
     text-decoration: none;
     color: #333;
     font-weight: 500;
-    transition: color 0.3s;
+    transition: color .3s
 }
+
 nav a:hover {
-    color: #005BBB;
+    color: #005BBB
 }
+
 nav a.active {
     color: #005BBB;
-    font-weight: bold;
+    font-weight: bold
 }
+
 @media (max-width: 768px) {
     .burger-menu {
-        display: block;
+        display: block
     }
 
     nav ul {
@@ -88,35 +100,38 @@ nav a.active {
         left: 0;
         right: 0;
         flex-direction: column;
-        background-color: #ffffff;
+        background-color: #fff;
         border-top: 1px solid #ddd;
         overflow: hidden;
         max-height: 0;
-        transition: max-height 0.3s ease;
+        transition: max-height .3s ease
     }
+
     #burger-toggle:checked ~ nav ul {
-        max-height: 15rem;
+        max-height: 15rem
     }
+
     nav ul li {
         margin: 1rem 0;
-        text-align: center;
+        text-align: center
     }
 }
 
 main {
     padding: 1rem;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 0 auto
 }
 
 .page-heading {
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 2rem
 }
+
 .page-heading h1 {
     font-size: 2rem;
     color: #005BBB;
-    margin-bottom: 0.5rem;
+    margin-bottom: .5rem
 }
 
 .hero {
@@ -124,162 +139,241 @@ main {
     padding: 3rem 1rem;
     background-color: #edf5ff;
     margin-bottom: 2rem;
-    border-radius: 15px;
+    border-radius: 15px
 }
+
 .hero h1 {
     font-size: 2.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1rem
 }
+
 .hero p {
     font-size: 1.2rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.5rem
 }
+
 .hero .btn {
     display: inline-block;
     background-color: #005BBB;
     color: #fff;
-    padding: 0.75rem 1.5rem;
+    padding: .75rem 1.5rem;
     text-decoration: none;
     border-radius: 4px;
-    transition: background-color 0.3s;
+    transition: background-color .3s
 }
+
 .hero .btn:hover {
-    background-color: #003D8F;
+    background-color: #003D8F
 }
 
 .annotation {
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 2rem
 }
+
 .annotation h2 {
     font-size: 1.8rem;
     color: #005BBB;
-    margin-bottom: 1rem;
+    margin-bottom: 1rem
 }
+
 .annotation p {
     margin-top: 1rem;
-    font-size: 1.1rem;
+    font-size: 1.1rem
 }
 
 .project-details {
-    margin-top: 2rem;
+    margin-top: 2rem
 }
+
 .project-details h2 {
     color: #005BBB;
     margin-top: 1.5rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: .5rem
 }
+
 .project-details ul {
     list-style: inside disc;
-    margin-left: 1.5rem;
+    margin-left: 1.5rem
 }
 
 .team {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
-    justify-content: center;
+    justify-content: center
 }
+
 .team-card {
-    background-color: #ffffff;
+    background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 1rem;
     width: 280px;
     text-align: center;
-    transition: box-shadow 0.3s;
+    transition: box-shadow .3s
 }
+
 .team-card:hover {
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1)
 }
+
 .member-photo {
     height: 120px;
     width: 120px;
     margin: 0 auto 1rem;
     background-color: #eee;
     border-radius: 50%;
-    overflow: hidden;
+    overflow: hidden
 }
+
 .team-card h3 {
-    margin: 0.5rem 0;
+    margin: .5rem 0;
     font-size: 1.2rem;
-    color: #005BBB;
+    color: #005BBB
 }
+
 .team-card .role {
     font-style: italic;
-    margin-bottom: 0.5rem;
-    color: #666;
+    margin-bottom: .5rem;
+    color: #666
 }
+
 .team-card .description {
-    font-size: 0.9rem;
-    color: #555;
+    font-size: .9rem;
+    color: #555
 }
 
 .journal {
     max-width: 800px;
-    margin: 2rem auto;
+    margin: 2rem auto
 }
+
 .post {
     margin-bottom: 1rem;
-    background-color: #ffffff;
+    background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 4px;
-    overflow: hidden;
+    overflow: hidden
 }
+
 .post-header {
     cursor: pointer;
-    padding: 0.75rem 1rem;
+    padding: .75rem 1rem;
     font-weight: 600;
     background-color: #f1f1f1;
-    transition: background-color 0.3s;
+    transition: background-color .3s
 }
+
 .post-header:hover {
-    background-color: #e3e3e3;
+    background-color: #e3e3e3
 }
+
 .post-body {
     max-height: 0;
     opacity: 0;
     padding: 0 1rem;
     overflow: hidden;
-    transition: max-height 0.5s ease, opacity 0.5s ease, padding 0.5s ease;
+    transition: max-height .4s ease, opacity .4s ease, padding .4s ease
 }
+
 .post.open .post-body {
     max-height: 1000px;
     opacity: 1;
-    padding: 0.75rem 1rem;
+    padding: .75rem 1rem
+}
+
+.post-body .slide-content {
+    transform: translateY(-10px);
+    opacity: 0;
+    transition: transform .4s ease, opacity .4s ease
+}
+
+.post.open .post-body .slide-content {
+    transform: translateY(0);
+    opacity: 1
 }
 
 .resources ul {
     list-style: inside square;
-    margin-left: 1rem;
+    margin-left: 1rem
 }
+
 .resources ul li {
-    margin: 0.5rem 0;
+    margin: .5rem 0
 }
+
 .resources a {
     color: #005BBB;
-    text-decoration: none;
+    text-decoration: none
 }
+
 .resources a:hover {
-    text-decoration: underline;
+    text-decoration: underline
 }
 
 footer {
-    background-color: #ffffff;
+    background-color: #fff;
     border-top: 1px solid #ddd;
     text-align: center;
     padding: 1rem;
-    font-size: 0.9rem;
+    font-size: .9rem;
     color: #777;
-    margin-top: 2rem;
+    margin-top: 2rem
 }
 
 .toggle-section .post-body {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease;
-  }
+    transition: max-height .3s ease
+}
 
-  .toggle-section.active .post-body {
-    max-height: 200px; /* или auto, но auto анимируется не во всех браузерах */
-  }
+.toggle-section.active .post-body {
+    max-height: 200px
+}
+
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity .5s ease
+}
+
+#preloader.hidden {
+    opacity: 0;
+    pointer-events: none
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #ddd;
+    border-top-color: #005BBB;
+    border-radius: 50%;
+    animation: spin 1s linear infinite
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg)
+    }
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity .6s ease, transform .6s ease
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0)
+}

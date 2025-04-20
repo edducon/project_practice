@@ -1,21 +1,19 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Цифровой помощник Поли — О проекте</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/style.css"/>
 </head>
 <body>
-<!-- Шапка сайта / Меню -->
+<div id="preloader">
+  <img src="img/preloader.PNG" class="spinner" alt="Загрузка…">
+</div>
 <header>
   <div class="logo">Поли</div>
-  <input type="checkbox" id="burger-toggle" />
-  <label for="burger-toggle" class="burger-menu">
-    <span></span>
-    <span></span>
-    <span></span>
-  </label>
+  <input type="checkbox" id="burger-toggle"/>
+  <label for="burger-toggle" class="burger-menu"><span></span><span></span><span></span></label>
   <nav>
     <ul>
       <li><a href="index.html">Главная</a></li>
@@ -26,30 +24,21 @@
     </ul>
   </nav>
 </header>
-
 <main>
-  <section class="page-heading">
+  <section class="page-heading reveal">
     <h1>О проекте</h1>
-    <article class="post">
-      <div class="post-header">
-       Более подробная информация
-      </div>
+    <article class="post reveal">
+      <div class="post-header">Более подробная информация</div>
       <div class="post-body">
-        <p>
-          Бот позволяет не только мгновенно получать актуальное расписание, но и получать уведомления об изменениях, чтобы избежать опозданий и пропущенных занятий. Кроме того, он даёт возможность просматривать расписание на текущий день или неделю, устанавливать напоминания о занятиях и планировать учебное время более эффективно.
-          <br /><br />
-          Для преподавателей бот упрощает управление расписанием, помогает координировать изменения и оперативно информировать студентов. Автоматизация этих процессов снижает нагрузку на учебные части вузов и делает коммуникацию между участниками образовательного процесса более удобной и быстрой.
-        </p>
+        <div class="slide-content">
+          <p>Бот позволяет не только мгновенно получать актуальное расписание, но и получать уведомления об изменениях, чтобы избежать опозданий и пропущенных занятий.<br/><br/>Для преподавателей бот упрощает управление расписанием, помогает координировать изменения и оперативно информировать студентов.</p>
+        </div>
       </div>
     </article>
   </section>
-
-  <section class="project-details">
+  <section class="project-details reveal">
     <h2>Что такое «Поли»?</h2>
-    <p>
-      «Поли» — чат-бот в Telegram, который станет удобным и многофункциональным инструментом для студентов Московского Политехнического университета.
-    </p>
-
+    <p>«Поли» — чат-бот в Telegram, который станет удобным и многофункциональным инструментом для студентов Московского Политехнического университета.</p>
     <h2>Как это работает?</h2>
     <ul>
       <li>Удобный доступ – большинство студентов пользуются Telegram, что позволяет получать расписание, не заходя в браузер.</li>
@@ -57,70 +46,21 @@
       <li>Напоминания о занятиях – встроенная система уведомлений предупреждает студентов о начале пар, особенно актуально для онлайн-занятий.</li>
       <li>Обучение – новый пользователь получает пошаговое руководство по использованию бота, что делает использование еще проще.</li>
       <li>Обратная связь – пользователи могут оставлять пожелания и сообщения, а мы в свою очередь оперативно исправим или доработаем функционал, свяжемся с вами.</li>
-
     </ul>
-
     <h2>Технологии</h2>
-    <p>
-      <li>Node.js
-
-      <li>
-        <a href="https://github.com/axios/axios" target="_blank" rel="noreferrer">
-          axios
-        </a> —
-        для HTTP‑запросов к API расписания.
-      </li>
-
-      <li>
-        <a href="https://github.com/yagop/node-telegram-bot-api" target="_blank" rel="noreferrer">
-          node-telegram-bot-api
-        </a> —
-        для работы с Telegram Bot API.
-      </li>
-
-      <li>
-        <a href="https://momentjs.com/timezone/" target="_blank" rel="noreferrer">
-          moment-timezone
-        </a> —
-        для работы с датой и временем.
-      </li>
-
-      <li>
-        <a href="https://github.com/TryGhost/node-sqlite3" target="_blank" rel="noreferrer">
-          sqlite3
-        </a> —
-        для работы с базой данных SQLite.
-      </li>
-
-      <li>
-        <a href="https://github.com/node-cron/node-cron" target="_blank" rel="noreferrer">
-          node-cron
-        </a> —
-        для планирования cron‑задач.
-      </li>
-
-      <li>
-        <a href="https://github.com/wanasit/chrono" target="_blank" rel="noreferrer">
-          chrono-node
-        </a> —
-        для парсинга дат из произвольного текста.
-      </li>
-
-      <li>
-        <a href="https://github.com/winstonjs/winston" target="_blank" rel="noreferrer">
-          winston
-        </a> —
-        для логирования.
-      </li>
-
-      <li>fs — для чтения файлов (например, шаблонов стандартных паттернов).
-
-
-    </p>
+    <ul>
+      <li>Node.js</li>
+      <li><a href="https://github.com/axios/axios" target="_blank" rel="noreferrer">axios</a></li>
+      <li><a href="https://github.com/yagop/node-telegram-bot-api" target="_blank" rel="noreferrer">node-telegram-bot-api</a></li>
+      <li><a href="https://momentjs.com/timezone/" target="_blank" rel="noreferrer">moment-timezone</a></li>
+      <li><a href="https://github.com/TryGhost/node-sqlite3" target="_blank" rel="noreferrer">sqlite3</a></li>
+      <li><a href="https://github.com/node-cron/node-cron" target="_blank" rel="noreferrer">node-cron</a></li>
+      <li><a href="https://github.com/wanasit/chrono" target="_blank" rel="noreferrer">chrono-node</a></li>
+      <li><a href="https://github.com/winstonjs/winston" target="_blank" rel="noreferrer">winston</a></li>
+      <li>fs</li>
+    </ul>
   </section>
 </main>
-
-<!-- Подключаем JavaScript -->
 <script src="js/script.js"></script>
 </body>
 </html>

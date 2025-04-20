@@ -1,21 +1,19 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Цифровой помощник Поли — Ресурсы</title>
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/style.css"/>
 </head>
 <body>
-<!-- Шапка сайта / Меню -->
+<div id="preloader">
+    <img src="img/preloader.PNG" class="spinner" alt="Загрузка…">
+</div>
 <header>
     <div class="logo">Поли</div>
-    <input type="checkbox" id="burger-toggle" />
-    <label for="burger-toggle" class="burger-menu">
-        <span></span>
-        <span></span>
-        <span></span>
-    </label>
+    <input type="checkbox" id="burger-toggle"/>
+    <label for="burger-toggle" class="burger-menu"><span></span><span></span><span></span></label>
     <nav>
         <ul>
             <li><a href="index.html">Главная</a></li>
@@ -26,76 +24,26 @@
         </ul>
     </nav>
 </header>
-
 <main>
-    <section class="page-heading">
+    <section class="page-heading reveal">
         <h1>Полезные ресурсы</h1>
         <p>Ссылки на материалы и партнёров, которые помогают развитию проекта.</p>
     </section>
-
-    <section class="resources">
+    <section class="resources reveal">
         <ul>
-            <li>
-                <a href="https://mospolytech.ru" target="_blank" rel="noreferrer">
-                    Московский Политех
-                </a> —
-                Официальный сайт университета.
-            </li>
-
-            <li>
-                <a href="https://telegram.org" target="_blank" rel="noreferrer">
-                    Telegram
-                </a> —
-                Платформа, где работает наш бот.
-            </li>
-
-            <li>
-                <a href="https://example.com" target="_blank" rel="noreferrer">
-                    Общие сведения о разработке чат-ботов. </a>
-            </li>
-
-            <li>
-                <a href="https://developer.mozilla.org/ru/docs/Learn_web_development/Core/CSS_layout/Introduction" target="_blank" rel="noreferrer">
-                    Введение в CSS верстку. </a>
-            </li>
-
-            <li>
-            <a href=" https://habr.com/ru/articles/548898/" target="_blank" rel="noreferrer">
-                DevTools для «чайников». </a>
-        </li>
-
-            <li>
-            <a href="https://developer.mozilla.org/ru/docs/Web/HTML/Element" target="_blank" rel="noreferrer">
-                Элементы HTML. </a>
-            </li>
-
-            <li>
-            <a href="https://developer.mozilla.org/ru/docs/Learn_web_development/Getting_started/Your_first_website/Creating_the_content" target="_blank" rel="noreferrer">
-                Основы HTML. </a>
-            </li>
-
-            <li>
-            <a href=" https://developer.mozilla.org/ru/docs/Web/CSS" target="_blank" rel="noreferrer">
-                Основы CSS. </a>
-            </li>
-
-            <li>
-            <a href=" https://git-scm.com/book/ru/v2" target="_blank" rel="noreferrer">
-                Официальная документация Git. </a>
-            </li>
-
-            <li>
-                <a href="https://t.me/mpuhelp_bot" target="_blank" rel="noreferrer">
-                    "Поли"
-                </a> —
-                чат-бот в Telegram.
-            </li>
-
+            <li><a href="https://mospolytech.ru" target="_blank" rel="noreferrer">Московский Политех</a></li>
+            <li><a href="https://telegram.org" target="_blank" rel="noreferrer">Telegram</a></li>
+            <li><a href="https://example.com" target="_blank" rel="noreferrer">Общие сведения о разработке чат-ботов</a></li>
+            <li><a href="https://developer.mozilla.org/ru/docs/Learn_web_development/Core/CSS_layout/Introduction" target="_blank" rel="noreferrer">Введение в CSS верстку</a></li>
+            <li><a href="https://habr.com/ru/articles/548898/" target="_blank" rel="noreferrer">DevTools для «чайников»</a></li>
+            <li><a href="https://developer.mozilla.org/ru/docs/Web/HTML/Element" target="_blank" rel="noreferrer">Элементы HTML</a></li>
+            <li><a href="https://developer.mozilla.org/ru/docs/Learn_web_development/Getting_started/Your_first_website/Creating_the_content" target="_blank" rel="noreferrer">Основы HTML</a></li>
+            <li><a href="https://developer.mozilla.org/ru/docs/Web/CSS" target="_blank" rel="noreferrer">Основы CSS</a></li>
+            <li><a href="https://git-scm.com/book/ru/v2" target="_blank" rel="noreferrer">Официальная документация Git</a></li>
+            <li><a href="https://t.me/mpuhelp_bot" target="_blank" rel="noreferrer">Поли</a></li>
         </ul>
     </section>
 </main>
-
-<!-- Подключаем JavaScript -->
 <script src="js/script.js"></script>
 </body>
 </html>
