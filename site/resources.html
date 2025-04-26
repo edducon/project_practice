@@ -1,49 +1,64 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" data-theme="">
 <head>
-    <meta charset="UTF-8"/>
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Цифровой помощник Поли — Ресурсы</title>
+    <title>Поли — Ресурсы</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+            rel="stylesheet"/>
+
+    <link
+            href="https://fonts.googleapis.com/icon?family=Material+Icons"
+            rel="stylesheet"/>
+
     <link rel="stylesheet" href="css/style.css"/>
 </head>
 <body>
-<div id="preloader">
-    <img src="img/preloader.PNG" class="spinner" alt="Загрузка…">
-</div>
+<div id="preloader"><div class="spinner"></div></div>
+
 <header>
-    <div class="logo">Поли</div>
-    <input type="checkbox" id="burger-toggle"/>
-    <label for="burger-toggle" class="burger-menu"><span></span><span></span><span></span></label>
-    <nav>
-        <ul>
-            <li><a href="index.html">Главная</a></li>
-            <li><a href="about.html">О проекте</a></li>
-            <li><a href="team.html">Участники</a></li>
-            <li><a href="journal.html">Журнал</a></li>
-            <li><a href="resources.html" class="active">Ресурсы</a></li>
-        </ul>
-    </nav>
+    <div class="container">
+        <div class="logo">Поли</div>
+        <input type="checkbox" id="burger-toggle"/>
+        <label for="burger-toggle" class="burger-menu"><span></span></label>
+        <nav>
+            <ul>
+                <li><a href="index.html"><i class="material-icons">home</i>Главная</a></li>
+                <li><a href="about.html"><i class="material-icons">info</i>О проекте</a></li>
+                <li><a href="team.html"><i class="material-icons">group</i>Участники</a></li>
+                <li><a href="journal.html"><i class="material-icons">book</i>Журнал</a></li>
+                <li><a href="resources.html" class="active"><i class="material-icons">link</i>Ресурсы</a></li>
+            </ul>
+        </nav>
+    </div>
 </header>
-<main>
-    <section class="page-heading reveal">
-        <h1>Полезные ресурсы</h1>
-        <p>Ссылки на материалы и партнёров, которые помогают развитию проекта.</p>
-    </section>
-    <section class="resources reveal">
-        <ul>
-            <li><a href="https://mospolytech.ru" target="_blank" rel="noreferrer">Московский Политех</a></li>
-            <li><a href="https://telegram.org" target="_blank" rel="noreferrer">Telegram</a></li>
-            <li><a href="https://example.com" target="_blank" rel="noreferrer">Общие сведения о разработке чат-ботов</a></li>
-            <li><a href="https://developer.mozilla.org/ru/docs/Learn_web_development/Core/CSS_layout/Introduction" target="_blank" rel="noreferrer">Введение в CSS верстку</a></li>
-            <li><a href="https://habr.com/ru/articles/548898/" target="_blank" rel="noreferrer">DevTools для «чайников»</a></li>
-            <li><a href="https://developer.mozilla.org/ru/docs/Web/HTML/Element" target="_blank" rel="noreferrer">Элементы HTML</a></li>
-            <li><a href="https://developer.mozilla.org/ru/docs/Learn_web_development/Getting_started/Your_first_website/Creating_the_content" target="_blank" rel="noreferrer">Основы HTML</a></li>
-            <li><a href="https://developer.mozilla.org/ru/docs/Web/CSS" target="_blank" rel="noreferrer">Основы CSS</a></li>
-            <li><a href="https://git-scm.com/book/ru/v2" target="_blank" rel="noreferrer">Официальная документация Git</a></li>
-            <li><a href="https://t.me/mpuhelp_bot" target="_blank" rel="noreferrer">Поли</a></li>
-        </ul>
+
+<main class="container">
+    <section id="resources" class="section reveal">
+        <h2>Полезные ресурсы</h2>
+        <p style="text-align:center; color:var(--color-muted); margin-bottom:var(--spacing-m);">
+            Ссылки на материалы и партнёров, которые помогают развитию проекта.
+        </p>
+        <div class="card-grid">
+            <div class="card"><div class="card-body"><a href="https://mospolytech.ru" target="_blank" rel="noreferrer">Московский Политех</a></div></div>
+            <div class="card"><div class="card-body"><a href="https://telegram.org" target="_blank" rel="noreferrer">Telegram</a></div></div>
+            <div class="card"><div class="card-body"><a href="https://developer.mozilla.org/ru/docs/Learn_web_development/Core/CSS_layout/Introduction" target="_blank" rel="noreferrer">Введение в CSS верстку</a></div></div>
+            <div class="card"><div class="card-body"><a href="https://habr.com/ru/articles/548898/" target="_blank" rel="noreferrer">DevTools для «чайников»</a></div></div>
+            <div class="card"><div class="card-body"><a href="https://developer.mozilla.org/ru/docs/Web/HTML/Element" target="_blank" rel="noreferrer">Элементы HTML</a></div></div>
+            <div class="card"><div class="card-body"><a href="https://developer.mozilla.org/ru/docs/Learn_web_development/Getting_started/Your_first_website/Creating_the_content" target="_blank" rel="noreferrer">Основы HTML</a></div></div>
+            <div class="card"><div class="card-body"><a href="https://developer.mozilla.org/ru/docs/Web/CSS" target="_blank" rel="noreferrer">Основы CSS</a></div></div>
+            <div class="card"><div class="card-body"><a href="https://git-scm.com/book/ru/v2" target="_blank" rel="noreferrer">Официальная документация Git</a></div></div>
+            <div class="card"><div class="card-body"><a href="https://t.me/mpuhelp_bot" target="_blank" rel="noreferrer">Поли</a></div></div>
+        </div>
     </section>
 </main>
+
+<button id="scrollTopBtn" title="Наверх">↑</button>
+
 <script src="js/script.js"></script>
 </body>
 </html>

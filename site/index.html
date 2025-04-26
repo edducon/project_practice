@@ -1,41 +1,65 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" data-theme="">
 <head>
-    <meta charset="UTF-8"/>
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Цифровой помощник Поли — Главная</title>
+    <title>Поли — Главная</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+            rel="stylesheet"/>
+
+    <link
+            href="https://fonts.googleapis.com/icon?family=Material+Icons"
+            rel="stylesheet"/>
     <link rel="stylesheet" href="css/style.css"/>
 </head>
 <body>
 <div id="preloader">
-    <img src="img/preloader.PNG" class="spinner" alt="Загрузка…">
+    <div class="spinner"></div>
 </div>
+
 <header>
-    <div class="logo">Поли</div>
-    <input type="checkbox" id="burger-toggle"/>
-    <label for="burger-toggle" class="burger-menu"><span></span><span></span><span></span></label>
-    <nav>
-        <ul>
-            <li><a href="index.html" class="active">Главная</a></li>
-            <li><a href="about.html">О проекте</a></li>
-            <li><a href="team.html">Участники</a></li>
-            <li><a href="journal.html">Журнал</a></li>
-            <li><a href="resources.html">Ресурсы</a></li>
-        </ul>
-    </nav>
+    <div class="container">
+        <div class="logo">Поли</div>
+        <input type="checkbox" id="burger-toggle"/>
+        <label for="burger-toggle" class="burger-menu"><span></span></label>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active"><i class="material-icons">home</i>Главная</a></li>
+                <li><a href="about.html"><i class="material-icons">info</i>О проекте</a></li>
+                <li><a href="team.html"><i class="material-icons">group</i>Участники</a></li>
+                <li><a href="journal.html"><i class="material-icons">book</i>Журнал</a></li>
+                <li><a href="resources.html"><i class="material-icons">link</i>Ресурсы</a></li>
+            </ul>
+        </nav>
+    </div>
 </header>
-<main>
+
+<main class="container">
     <section class="hero reveal">
         <h1>Цифровой помощник для работы с расписанием в Московском Политехе</h1>
-        <p>Добро пожаловать на сайт проекта «Цифровой помощник для работы с расписанием в Московском Политехе» —<br/>чат-бота в Telegram для студентов и преподавателей, предоставляющего быстрый и удобный доступ<br/>к актуальному расписанию занятий, уведомления об изменениях и другую важную информацию.</p>
-        <a href="about.html" class="btn">Узнать больше</a>
+        <p>Добро пожаловать на сайт проекта «Цифровой помощник для работы с расписанием в Московском Политехе» —
+            чат-бота в Telegram для студентов и преподавателей, предоставляющего быстрый и удобный доступ
+            к актуальному расписанию занятий, уведомления об изменениях и другую важную информацию.</p>
+        <a href="about.html" class="btn"><i class="material-icons">arrow_forward</i>Узнать больше</a>
     </section>
-    <section class="annotation reveal">
-        <h2>Аннотация проекта</h2>
-        <p>Цифровой помощник «Поли» — это умный чат-бот, который<br/>помогает студентам и преподавателям Московского политеха<br/>легко ориентироваться в расписании, находить нужные пары,<br/>проверять изменения и многое другое.</p>
-        <img src="img/welcome.PNG" alt="Поли" width="400"/>
+
+    <section id="annotation" class="section reveal">
+        <div class="text-block">
+            <h2>Аннотация проекта</h2>
+            <p>
+                Цифровой помощник «Поли» — это умный чат-бот, который помогает студентам и преподавателям Московского политеха
+                легко ориентироваться в расписании, находить нужные пары, проверять изменения и многое другое.
+            </p>
+            <img src="img/welcome.PNG" alt="Поли" />
+        </div>
     </section>
 </main>
+
+<button id="scrollTopBtn" title="Наверх">↑</button>
+
 <script src="js/script.js"></script>
 </body>
 </html>

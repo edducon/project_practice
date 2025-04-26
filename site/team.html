@@ -1,76 +1,82 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" data-theme="">
 <head>
-    <meta charset="UTF-8"/>
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Цифровой помощник Поли — Участники</title>
+    <title>Поли — Участники</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+            rel="stylesheet"/>
+
+    <link
+            href="https://fonts.googleapis.com/icon?family=Material+Icons"
+            rel="stylesheet"/>
+
     <link rel="stylesheet" href="css/style.css"/>
 </head>
 <body>
-<div id="preloader">
-    <img src="img/preloader.PNG" class="spinner" alt="Загрузка…">
-</div>
+<div id="preloader"><div class="spinner"></div></div>
+
 <header>
-    <div class="logo">Поли</div>
-    <input type="checkbox" id="burger-toggle"/>
-    <label for="burger-toggle" class="burger-menu"><span></span><span></span><span></span></label>
-    <nav>
-        <ul>
-            <li><a href="index.html">Главная</a></li>
-            <li><a href="about.html">О проекте</a></li>
-            <li><a href="team.html" class="active">Участники</a></li>
-            <li><a href="journal.html">Журнал</a></li>
-            <li><a href="resources.html">Ресурсы</a></li>
-        </ul>
-    </nav>
+    <div class="container">
+        <div class="logo">Поли</div>
+        <input type="checkbox" id="burger-toggle"/>
+        <label for="burger-toggle" class="burger-menu"><span></span></label>
+        <nav>
+            <ul>
+                <li><a href="index.html"><i class="material-icons">home</i>Главная</a></li>
+                <li><a href="about.html"><i class="material-icons">info</i>О проекте</a></li>
+                <li><a href="team.html" class="active"><i class="material-icons">group</i>Участники</a></li>
+                <li><a href="journal.html"><i class="material-icons">book</i>Журнал</a></li>
+                <li><a href="resources.html"><i class="material-icons">link</i>Ресурсы</a></li>
+            </ul>
+        </nav>
+    </div>
 </header>
-<main>
-    <section class="page-heading reveal">
-        <h1>Команда проекта</h1>
-        <p>Участники практики, внесшие вклад в разработку чат-бота "Поли"</p>
-    </section>
-    <section class="team reveal">
-        <div class="team-card reveal">
-            <div class="member-photo"><img src="https://avataaars.io/?avatarStyle=Circle&topType=ShortHairShortCurly&accessoriesType=Blank&hairColor=Black&facialHairType=Blank&clotheType=ShirtCrewNeck&clotheColor=PastelGreen&eyeType=Happy&eyebrowType=Default&mouthType=Smile&skinColor=Pale" width="120"/></div>
-            <h3>Панпушный<br/>Эдуард</h3>
-            <p class="role">Тимлид проекта</p>
-            <article class="post reveal">
-                <div class="post-header">Вклад</div>
-                <div class="post-body">
-                    <div class="slide-content">
-                        <p>Техническое ядро команды. Он не только разработал ключевые функции бота (включая команды /day, /nextday и /start),  оптимизировал код, но также реализовал полноценный веб-сайт для проекта. Его работа обеспечивает стабильную работу как самого Telegram-бота, так и его презентационной веб-версии.</p>
-                    </div>
+
+<main class="container">
+    <section id="team" class="section reveal">
+        <h2>Команда проекта</h2>
+        <p style="text-align:center; color:var(--color-muted); margin-bottom:var(--spacing-m);">
+            Участники, внесшие вклад в проект
+        </p>
+        <div class="card-grid">
+            <div class="card">
+                <img src="https://avataaars.io/?avatarStyle=Circle&topType=ShortHairShortCurly&accessoriesType=Blank&hairColor=Black&facialHairType=Blank&clotheType=ShirtCrewNeck&clotheColor=PastelGreen&eyeType=Happy&eyebrowType=Default&mouthType=Smile&skinColor=Pale"
+                     alt="Панпушный Эдуард">
+                <div class="card-body">
+                    <h3>Панпушный Эдуард</h3>
+                    <p>Техническое ядро команды. Он не только разработал ключевые функции бота (включая команды /day, /nextday и /start), оптимизировал код, но также реализовал полноценный веб-сайт для проекта. Его работа обеспечивает стабильную работу как самого Telegram-бота, так и его презентационной веб-версии.</p>
+                    <span class="read-more">Читать далее</span>
                 </div>
-            </article>
-        </div>
-        <div class="team-card reveal">
-            <div class="member-photo"><img src="https://avataaars.io/?avatarStyle=Circle&topType=LongHairStraight&accessoriesType=Blank&hairColor=BrownDark&facialHairType=Blank&clotheType=ShirtVNeck&clotheColor=White&eyeType=Happy&eyebrowType=Default&mouthType=Smile&skinColor=Pale" width="120"/></div>
-            <h3>Черникова Софья Михайловна</h3>
-            <p class="role">Исполнитель</p>
-            <article class="post reveal">
-                <div class="post-header">Вклад</div>
-                <div class="post-body">
-                    <div class="slide-content">
-                        <p>Занимается организационными задачами и визуальным оформлением. Помимо работы с документацией (отчеты, паспорт проекта, Политика конфиденциальности) и создания диаграммы Ганта, она активно участвует в дизайне и оформлении веб-сайта бота, обеспечивая его эстетическую привлекательность и удобство навигации.</p>
-                    </div>
+            </div>
+            <div class="card">
+                <img src="https://avataaars.io/?avatarStyle=Circle&topType=LongHairStraight&accessoriesType=Blank&hairColor=BrownDark&facialHairType=Blank&clotheType=ShirtVNeck&clotheColor=White&eyeType=Happy&eyebrowType=Default&mouthType=Smile&skinColor=Pale"
+                     alt="Черникова Софья">
+                <div class="card-body">
+                    <h3>Черникова Софья Михайловна</h3>
+                    <p>Занимается организационными задачами и визуальным оформлением. Помимо работы с документацией (отчёты, паспорт проекта, Политика конфиденциальности) и создания диаграммы Ганта, она активно участвует в дизайне и оформлении веб-сайта бота, обеспечивая его эстетическую привлекательность и удобство навигации.</p>
+                    <span class="read-more">Читать далее</span>
                 </div>
-            </article>
-        </div>
-        <div class="team-card reveal">
-            <div class="member-photo"><img src="https://avataaars.io/?avatarStyle=Circle&topType=LongHairStraight2&accessoriesType=Blank&hairColor=BlondeGolden&facialHairType=Blank&clotheType=Hoodie&clotheColor=Gray02&eyeType=Happy&eyebrowType=Default&mouthType=Smile&skinColor=Pale" width="120"/></div>
-            <h3>Попова Ангелина Викторовна</h3>
-            <p class="role">Исполнитель</p>
-            <article class="post reveal">
-                <div class="post-header">Вклад</div>
-                <div class="post-body">
-                    <div class="slide-content">
-                        <p>Занимается тестированием текстовых ответов бота, проверяя их корректность и понятность для пользователей. Также проводит опросы студентов, анализирует обратную связь и на основе этих данных предлагает улучшения функционала.  И помогает с оформлением веб-сайта.</p>
-                    </div>
+            </div>
+            <div class="card">
+                <img src="https://avataaars.io/?avatarStyle=Circle&topType=LongHairStraight2&accessoriesType=Blank&hairColor=BlondeGolden&facialHairType=Blank&clotheType=Hoodie&clotheColor=Gray02&eyeType=Happy&eyebrowType=Default&mouthType=Smile&skinColor=Pale"
+                     alt="Попова Ангелина">
+                <div class="card-body">
+                    <h3>Попова Ангелина Викторовна</h3>
+                    <p>Занимается тестированием текстовых ответов бота, проверяя их корректность и понятность для пользователей. Также проводит опросы студентов, анализирует обратную связь и на основе этих данных предлагает улучшения функционала. И помогает с оформлением веб-сайта.</p>
+                    <span class="read-more">Читать далее</span>
                 </div>
-            </article>
+            </div>
         </div>
     </section>
 </main>
+
+<button id="scrollTopBtn" title="Наверх">↑</button>
+
 <script src="js/script.js"></script>
 </body>
 </html>
