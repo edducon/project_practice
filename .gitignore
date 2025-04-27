@@ -1,2 +1,4 @@
 .idea/
 project_practice.iml
+src/node_modules/
+src/package-lock.json
