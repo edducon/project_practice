@@ -4,6 +4,23 @@ window.addEventListener('load', () => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
+    for (let i = 0; i < 30; i++) {
+        const star = document.createElement('div');
+        star.className = 'particle';
+        star.style.top = Math.random() * 100 + 'vh';
+        star.style.left = Math.random() * 100 + 'vw';
+        star.style.animationDuration = 5 + Math.random() * 5 + 's';
+        document.body.appendChild(star);
+    }
+});
+
+document.addEventListener('mousemove', e => {
+    const x = (e.clientX / window.innerWidth - 0.5) * 10;
+    const y = (e.clientY / window.innerHeight - 0.5) * 10;
+    document.body.style.backgroundPosition = `${50 + x}% ${50 + y}%`;
+});
+
+document.addEventListener('DOMContentLoaded', () => {
     const observer = new IntersectionObserver((entries, obs) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {

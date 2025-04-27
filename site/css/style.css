@@ -33,8 +33,14 @@ html {
 }
 body {
     font-family: var(--font-base);
-    background: var(--color-bg);
+    background: linear-gradient(180deg, var(--color-bg) 0%, #ffffff 100%) fixed;
     color: var(--color-text);
+    opacity: 0;
+    transition: opacity 0.6s ease-out;
+}
+
+body.fade-in {
+    opacity: 1;
 }
 
 .container {
@@ -49,6 +55,12 @@ a {
     text-decoration: none;
     transition: color .2s;
 }
+
+nav a:hover {
+    color: var(--color-primary);
+    text-shadow: 0 0 8px rgba(41, 98, 255, 0.4);
+}
+
 a:hover {
     color: var(--color-primary-dark);
 }
@@ -67,9 +79,12 @@ a:hover {
     transition: background .2s, transform .1s;
 }
 .btn:hover {
-    background: var(--color-primary);
+    background: linear-gradient(to right, var(--color-primary), var(--color-primary-dark));
     color: #fff;
     transform: translateY(-2px);
+}
+.btn:active {
+    transform: scale(0.96);
 }
 
 header {
@@ -170,18 +185,12 @@ nav a.active::after {
     position: relative;
     overflow: hidden;
 }
-.hero::before,
-.hero::after {
-    content: '';
-    position: absolute;
-    border-radius: 50%;
-    opacity: .2;
-}
 .hero::before {
     width: 200px;
     height: 200px;
     background: var(--color-primary);
     top: -50px;
+    animation: float 6s ease-in-out infinite alternate;
     left: -50px;
 }
 .hero::after {
@@ -190,9 +199,22 @@ nav a.active::after {
     background: var(--color-accent);
     bottom: -100px;
     right: -100px;
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    opacity: .2;
+    animation: floatReverse 8s ease-in-out infinite alternate;
+}
+@keyframes float {
+    0% { transform: translate(0,0); }
+    100% { transform: translate(20px, 20px); }
+}
+@keyframes floatReverse {
+    0% { transform: translate(0,0); }
+    100% { transform: translate(-20px, -20px); }
 }
 .hero h1 {
-    font-family: var(--font-heading);
+    font-family: var(--font-heading), serif;
     font-size: 2.5rem;
     margin-bottom: var(--spacing-m);
     color: #fff;
@@ -236,8 +258,20 @@ nav a.active::after {
     transform: translateX(-50%);
     width: 60px;
     height: 4px;
-    background: var(--color-underline);
+    background: linear-gradient(270deg, #ff6d00, #e0e0e0);
+    background-size: 400% 400%;
     border-radius: 2px;
+    animation: gradientMove 4s ease infinite;
+}
+
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.section.reveal.visible h2::after {
+    width: 60px;
 }
 
 .text-block {
@@ -270,8 +304,9 @@ nav a.active::after {
     transition: transform .3s, box-shadow .3s;
 }
 .card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 8px 24px var(--shadow);
+    border: 2px solid var(--color-accent);
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 12px 32px rgba(41, 98, 255, 0.2);
 }
 .card-body {
     padding: var(--spacing-m);
@@ -317,7 +352,12 @@ nav a.active::after {
 .accordion-body {
     max-height: 0;
     overflow: hidden;
-    transition: max-height .5s ease;
+    opacity: 0;
+    transition: max-height .5s ease, opacity .5s ease;
+}
+
+.accordion-header.active + .accordion-body {
+    opacity: 1;
 }
 .accordion-body p,
 .accordion-body ul {
@@ -338,11 +378,13 @@ nav a.active::after {
 .reveal {
     opacity: 0;
     transform: translateY(20px);
-    transition: opacity .6s, transform .6s;
+    filter: blur(4px);
+    transition: opacity .6s, transform .6s, filter .6s;
 }
 .reveal.visible {
     opacity: 1;
     transform: translateY(0);
+    filter: blur(0);
 }
 
 #preloader {
@@ -398,6 +440,13 @@ nav a.active::after {
 #scrollTopBtn.show {
     opacity: 1;
     pointer-events: auto;
+    animation: pulseMove 1.5s infinite;
+}
+
+@keyframes pulseMove {
+    0% { transform: scale(1) translateY(0); }
+    50% { transform: scale(1.1) translateY(-3px); }
+    100% { transform: scale(1) translateY(0); }
 }
 
 footer {
@@ -473,4 +522,21 @@ footer {
     padding: var(--spacing-l);
     box-shadow: 0 4px 12px var(--shadow);
     margin-bottom: var(--spacing-l);
+}
+
+.particle {
+    position: fixed;
+    width: 3px;
+    height: 3px;
+    background: var(--color-primary-light);
+    border-radius: 50%;
+    opacity: 0.6;
+    animation: floatParticle linear infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes floatParticle {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(100vh); }
 }
