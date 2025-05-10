@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Поли — Инструкция по использованию</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+            rel="stylesheet"/>
+
+    <link
+            href="https://fonts.googleapis.com/icon?family=Material+Icons"
+            rel="stylesheet"/>
+
+    <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+<div id="preloader"><div class="spinner"></div></div>
+
+<header>
+    <div class="container">
+        <div class="logo">Поли</div>
+        <input type="checkbox" id="burger-toggle"/>
+        <label for="burger-toggle" class="burger-menu"><span></span></label>
+        <nav>
+            <ul>
+                <li><a href="index.html"><i class="material-icons">home</i>Главная</a></li>
+                <li><a href="about.html"><i class="material-icons">info</i>О проекте</a></li>
+                <li><a href="team.html"><i class="material-icons">group</i>Участники</a></li>
+                <li><a href="journal.html"><i class="material-icons">book</i>Журнал</a></li>
+                <li><a href="resources.html"><i class="material-icons">link</i>Ресурсы</a></li>
+                <li><a href="start.html" class="active"><i class="material-icons">help_outline</i>Как использовать</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main class="container">
+    <section id="how-to-use" class="section reveal">
+        <h2>Как использовать бота</h2>
+        <p style="text-align:center; color:var(--color-muted); margin-bottom:var(--spacing-l);">
+            Подробная инструкция по всем командам и возможностям бота Поли
+        </p>
+
+        <div class="command-section">
+            <h3>Начало работы с ботом</h3>
+            <div class="command-grid">
+                <div class="command-card">
+                    <div class="command-header">/start</div>
+                    <div class="command-description">
+                        Запуск бота и знакомство с его возможностями. При первом запуске вам будет предложено указать вашу группу.
+                    </div>
+                    <div class="command-example">
+                        <span class="example-title">Пример:</span>
+                        <code>/start</code>
+                    </div>
+                </div>
+
+                <div class="command-card">
+                    <div class="command-header">/add 000-000</div>
+                    <div class="command-description">
+                        Установка номера группы для получения расписания. Замените "000-000" на номер вашей группы.
+                    </div>
+                    <div class="command-example">
+                        <span class="example-title">Пример:</span>
+                        <code>/add 241-362</code>
+                    </div>
+                </div>
+
+                <div class="command-card">
+                    <div class="command-header">/change_group 000-000</div>
+                    <div class="command-description">
+                        Изменение ранее установленной группы. Замените "000-000" на новый номер группы.
+                    </div>
+                    <div class="command-example">
+                        <span class="example-title">Пример:</span>
+                        <code>/change_group 241-363</code>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="command-section">
+            <h3>Основные команды для работы с расписанием</h3>
+            <div class="command-grid">
+                <div class="command-card featured">
+                    <div class="command-header">/day</div>
+                    <div class="command-description">
+                        Получение расписания на сегодняшний день для вашей группы.
+                    </div>
+                    <div class="command-example">
+                        <span class="example-title">Примеры:</span>
+                        <code>/day</code>
+                        <code>/day 241-362</code> <span class="tip">(для другой группы)</span>
+                    </div>
+                </div>
+
+                <div class="command-card">
+                    <div class="command-header">/nextday</div>
+                    <div class="command-description">
+                        Получение расписания на завтрашний день для вашей группы.
+                    </div>
+                    <div class="command-example">
+                        <span class="example-title">Примеры:</span>
+                        <code>/nextday</code>
+                        <code>/nextday 241-362</code>
+                    </div>
+                </div>
+
+                <div class="command-card">
+                    <div class="command-header">/cur</div>
+                    <div class="command-description">
+                        Получение информации о текущем занятии (что сейчас идет).
+                    </div>
+                    <div class="command-example">
+                        <span class="example-title">Примеры:</span>
+                        <code>/cur</code>
+                        <code>/cur 241-362</code>
+                    </div>
+                </div>
+
+                <div class="command-card">
+                    <div class="command-header">/date [группа] ДД.ММ.ГГГГ</div>
+                    <div class="command-description">
+                        Получение расписания на конкретную дату. Указание группы необязательно.
+                    </div>
+                    <div class="command-example">
+                        <span class="example-title">Примеры:</span>
+                        <code>/date 17.05.2025</code>
+                        <code>/date 241-362 17.05.2025</code>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="command-section">
+            <h3>Дополнительные возможности</h3>
+            <div class="command-grid">
+                <div class="command-card">
+                    <div class="command-header">/compare_groups</div>
+                    <div class="command-description">
+                        Поиск пересекающихся корпусов между разными группами, чтобы встретиться с друзьями.
+                    </div>
+                    <div class="command-example">
+                        <span class="example-title">Пример:</span>
+                        <code>/compare_groups</code>
+                    </div>
+                </div>
+
+                <div class="command-card">
+                    <div class="command-header">/settings</div>
+                    <div class="command-description">
+                        Настройка уведомлений о расписании (время получения, формат и другие параметры).
+                    </div>
+                    <div class="command-example">
+                        <span class="example-title">Пример:</span>
+                        <code>/settings</code>
+                    </div>
+                </div>
+
+                <div class="command-card">
+                    <div class="command-header">/feedback</div>
+                    <div class="command-description">
+                        Отправка обратной связи разработчикам бота - пожелания, сообщения об ошибках.
+                    </div>
+                    <div class="command-example">
+                        <span class="example-title">Пример:</span>
+                        <code>/feedback Было бы здорово добавить...</code>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="feature-block reveal">
+            <h3>Текстовые запросы</h3>
+            <p>Помимо команд, бот также понимает обычные текстовые сообщения. Просто напишите свой запрос, и Поли автоматически распознает его!</p>
+
+            <div class="text-examples">
+                <div class="text-example">
+                    <div class="message-bubble">Поли расписание на завтра</div>
+                    <div class="bot-response">
+                        <div class="bot-avatar">🤖</div>
+                        <div class="response-content">
+                            Вот расписание на завтра для группы 241-362:
+                            <br>...
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-example">
+                    <div class="message-bubble">Поли расписание на 17 мая</div>
+                    <div class="bot-response">
+                        <div class="bot-avatar">🤖</div>
+                        <div class="response-content">
+                            Вот расписание на 17 мая для группы 241-362:
+                            <br>...
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tips-block reveal">
+            <h3>Советы по использованию</h3>
+            <ul class="tips-list">
+                <li>
+                    <i class="material-icons">lightbulb</i>
+                    <span>Настройте уведомления через команду <code>/settings</code>, чтобы получать расписание автоматически каждое утро</span>
+                </li>
+                <li>
+                    <i class="material-icons">lightbulb</i>
+                    <span>Используйте команду <code>/cur</code> во время учебы, чтобы быстро узнать, где сейчас должны быть</span>
+                </li>
+                <li>
+                    <i class="material-icons">lightbulb</i>
+                    <span>Добавьте бота в групповой чат вашей группы, чтобы все могли получать расписание</span>
+                </li>
+                <li>
+                    <i class="material-icons">lightbulb</i>
+                    <span>Оставляйте обратную связь через <code>/feedback</code>, чтобы бот стал еще удобнее</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="cta-block reveal">
+            <a href="https://t.me/mpuhelp_bot" target="_blank" rel="noreferrer" class="cta-button">
+                <i class="material-icons">send</i>
+                Начать использовать бота
+            </a>
+        </div>
+    </section>
+</main>
+
+<button id="scrollTopBtn" title="Наверх">↑</button>
+
+<script src="js/script.js"></script>
+</body>
+</html>
