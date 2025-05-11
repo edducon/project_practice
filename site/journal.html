@@ -192,6 +192,201 @@
                     <p>Мы приняли участие в мастер-классе от ООО "Эдит Про", где на практике освоили процесс формирования требований к ПО, выступая в роли заказчика туристических услуг. В ходе деловой игры мы анализировали потребности клиентов, определяли приоритеты функционала и разрабатывали концепцию IT-решения для туроператора под руководством опытных экспертов. Этот практический опыт позволил нам глубже понять логику заказчиков и усовершенствовать подходы к разработке пользовательских интерфейсов в нашем основном проекте. Особенно ценным оказался непосредственный контакт с профессионалами отрасли, чьи советы мы теперь применяем при создании цифрового помощника для студентов.</p>
                 </div>
             </div>
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    Подробный отчет по созданию Telegram-бота на Node.js
+                    <i class="material-icons arrow">expand_more</i>
+                </div>
+                <div class="accordion-body">
+                    <div class="telegram-report">
+                        <h2>Подробный отчет по созданию Telegram-бота на Node.js</h2>
+                        <p>В этом отчёте предоставлено пошаговое руководство по созданию Telegram-бота на <strong>Node.js</strong> с использованием <strong>JavaScript</strong> и библиотеки <strong>node-telegram-bot-api</strong>.</p>
+
+                        <h3>1. Исследование предметной области и постановка задач</h3>
+                        <p>Для начала нужно определить смысл и цель бота:</p>
+                        <ul>
+                            <li>Решите, зачем пользователи будут обращаться к вашему боту — получать уведомления, искать информацию или участвовать в опросах.</li>
+                        </ul>
+
+                        <p>Далее составить список ключевых функций:</p>
+                        <ul>
+                            <li>Запишите, какие команды и ответы будут базовыми (например, /start ,/help, эхо, запрос погоды).</li>
+                        </ul>
+
+                        <p>После ознакомиться с официальной документацией, чтобы понять доступные методы:</p>
+                        <ul>
+                            <li><strong>Telegram Bot API</strong>: <a href="https://core.telegram.org/bots/api" target="_blank">https://core.telegram.org/bots/api</a></li>
+                            <li><strong>JavaScript (MDN)</strong>: <a href="https://developer.mozilla.org/ru/docs/Web/JavaScript" target="_blank">https://developer.mozilla.org/ru/docs/Web/JavaScript</a></li>
+                            <li><strong>node-telegram-bot-api (GitHub)</strong>: <a href="https://github.com/yagop/node-telegram-bot-api" target="_blank">https://github.com/yagop/node-telegram-bot-api</a></li>
+                        </ul>
+
+                        <p>Блок-схема работы бота выглядит следующим образом:</p>
+                        <blockquote>"получили сообщение → определили тип (команда/текст/API) → сформировали ответ → отправили ответ"</blockquote>
+
+                        <h3>2. Подготовка окружения</h3>
+                        <p>Для работы потребуется <strong>Node.js (≥14)</strong> и <strong>npm</strong>.</p>
+
+                        <h4>2.1. Установка Node.js</h4>
+                        <p><strong>Windows</strong>: скачайте Windows Installer (.msi) с <a href="https://nodejs.org" target="_blank">nodejs.org</a> и установите.</p>
+                        <p><strong>macOS</strong>: через Homebrew: brew install node или скачайте .pkg с сайта.</p>
+                        <p><strong>Ubuntu/Debian</strong>:</p>
+
+                        <div class="code-block black">
+                <pre><code>curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+sudo apt-get install -y nodejs</code></pre>
+                        </div>
+
+                        <p>Проверьте версии в терминале:</p>
+                        <div class="code-block black">
+                <pre><code>node -v  # должно быть v14 или выше
+npm -v</code></pre>
+                        </div>
+
+                        <h4>2.2. Создание проекта</h4>
+                        <div class="code-block black">
+                <pre><code>mkdir src && cd src
+npm init -y</code></pre>
+                        </div>
+
+                        <h4>2.3. Установка зависимостей</h4>
+                        <div class="code-block black">
+                            <pre><code>npm install node-telegram-bot-api dotenv axios winston mongodb</code></pre>
+                        </div>
+
+                        <h4>2.4. Конфигурация окружения</h4>
+                        <p>Создайте файл .env в корне проекта:</p>
+                        <div class="code-block black">
+                <pre><code>BOT_TOKEN=ВАШ_ТОКЕН_БОТА
+WEATHER_KEY=ВАШ_API_КЛЮЧ_OPENWEATHER
+MONGO_URL=Ваша_строка_подключения</code></pre>
+                        </div>
+
+                        <!-- Продолжение остальных разделов в том же стиле -->
+
+                        <h3>5. Реализация основных функций бота</h3>
+
+                        <h4>5.1. Подключение зависимостей</h4>
+                        <div class="code-block black">
+                <pre><code>require('dotenv').config();
+const TelegramBot = require('node-telegram-bot-api');
+const axios = require('axios');
+const logger = require('./logger');
+const { connect } = require('./db');
+
+const token = process.env.BOT_TOKEN;
+if (!token) { console.error('ERROR: BOT_TOKEN не задан'); process.exit(1); }
+const bot = new TelegramBot(token, { polling: true });
+console.log('Бот запущен...');
+
+connect().then(() => console.log('MongoDB подключена'));</code></pre>
+                        </div>
+
+                        <!-- Аналогично для остальных разделов с кодом -->
+
+                        <h3>9. Модификация Telegram-бота: Добавление функции напоминаний</h3>
+                        <h4>Цель модификации</h4>
+                        <p>Добавить новую функцию — <strong>напоминания по таймеру</strong>, чтобы бот мог уведомлять пользователя через заданное количество минут.</p>
+
+                        <h4>9.1. Изменения в коде</h4>
+                        <div class="code-block black">
+                <pre><code>bot.onText(/\/remind (\d+)\s+(.+)/, async (msg, match) => {
+  const minutes = parseInt(match[1]);
+  const text = match[2];
+  const chatId = msg.chat.id;
+
+  if (isNaN(minutes) || minutes <= 0) {
+    return bot.sendMessage(chatId, 'Пожалуйста, укажите количество минут больше нуля.');
+  }
+
+  const remindTime = new Date(Date.now() + minutes * 60 * 1000);
+
+  bot.sendMessage(chatId, `Напоминание установлено через ${minutes} минут.`);
+
+  setTimeout(() => {
+    bot.sendMessage(chatId, `Напоминание: ${text}`);
+  }, minutes * 60 * 1000);
+
+  const db = await connect();
+  await db.collection('reminders').insertOne({
+    chatId,
+    text,
+    remindAt: remindTime,
+    createdAt: new Date(),
+    user: msg.from.username || msg.from.id
+  });
+});</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <style>
+                .telegram-report {
+                    font-family: Arial, sans-serif;
+                    line-height: 1.6;
+                    color: #333;
+                }
+
+                .telegram-report h2 {
+                    color: #2c3e50;
+                    border-bottom: 1px solid #ddd;
+                    padding-bottom: 10px;
+                }
+
+                .telegram-report h3 {
+                    color: #34495e;
+                    margin-top: 25px;
+                }
+
+                .telegram-report h4 {
+                    color: #7f8c8d;
+                    margin-top: 20px;
+                }
+
+                .code-block {
+                    margin: 15px 0;
+                    border-radius: 4px;
+                    overflow: hidden;
+                }
+
+                .code-block.black {
+                    background-color: #000;
+                    color: #fff;
+                }
+
+                .code-block pre {
+                    margin: 0;
+                    padding: 15px;
+                    overflow-x: auto;
+                    font-family: 'Courier New', monospace;
+                    font-size: 14px;
+                    line-height: 1.5;
+                    tab-size: 4;
+                }
+
+                .telegram-report ul {
+                    padding-left: 25px;
+                }
+
+                .telegram-report li {
+                    margin-bottom: 8px;
+                }
+
+                .telegram-report blockquote {
+                    border-left: 4px solid #ddd;
+                    padding-left: 15px;
+                    color: #666;
+                    font-style: italic;
+                    margin: 15px 0;
+                }
+
+                .telegram-report code:not(pre code) {
+                    background: #f0f0f0;
+                    padding: 2px 4px;
+                    border-radius: 3px;
+                    font-family: 'Courier New', monospace;
+                }
+            </style>
         </div>
     </section>
 </main>
