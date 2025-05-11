@@ -1095,8 +1095,6 @@ footer {
     .command-card {
         margin-bottom: var(--spacing-m);
     }
-
-    .command-description, 
     .command-example {
         padding: var(--spacing-m);
     }
