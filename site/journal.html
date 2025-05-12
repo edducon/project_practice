@@ -192,82 +192,205 @@
                     <p>Мы приняли участие в мастер-классе от ООО "Эдит Про", где на практике освоили процесс формирования требований к ПО, выступая в роли заказчика туристических услуг. В ходе деловой игры мы анализировали потребности клиентов, определяли приоритеты функционала и разрабатывали концепцию IT-решения для туроператора под руководством опытных экспертов. Этот практический опыт позволил нам глубже понять логику заказчиков и усовершенствовать подходы к разработке пользовательских интерфейсов в нашем основном проекте. Особенно ценным оказался непосредственный контакт с профессионалами отрасли, чьи советы мы теперь применяем при создании цифрового помощника для студентов.</p>
                 </div>
             </div>
-            <div class="accordion-item">
+            <div class="accordion-item dark-theme">
                 <div class="accordion-header">
                     Подробный отчет по созданию Telegram-бота на Node.js
                     <i class="material-icons arrow">expand_more</i>
                 </div>
                 <div class="accordion-body">
-                    <div class="telegram-report">
+                    <div class="telegram-report dark">
+                        <!-- Весь контент отчета здесь -->
                         <h2>Подробный отчет по созданию Telegram-бота на Node.js</h2>
-                        <p>В этом отчёте предоставлено пошаговое руководство по созданию Telegram-бота на <strong>Node.js</strong> с использованием <strong>JavaScript</strong> и библиотеки <strong>node-telegram-bot-api</strong>.</p>
+                        <p>В данном отчёте предоставлено пошаговое руководство по созданию Telegram-бота на <strong>Node.js</strong> с использованием <strong>JavaScript</strong> и библиотеки <strong>node-telegram-bot-api</strong>.</p>
 
                         <h3>1. Исследование предметной области и постановка задач</h3>
-                        <p>Для начала нужно определить смысл и цель бота:</p>
-                        <ul>
-                            <li>Решите, зачем пользователи будут обращаться к вашему боту — получать уведомления, искать информацию или участвовать в опросах.</li>
+                        <p>Первым шагом необходимо провести аналитику для постановки цели и определения функционала.</p>
+
+                        <div class="command-block dark">
+                            <p>Чтобы определить цель - решите, зачем пользователи будут обращаться к вашему боту.</p>
+                            <p><strong>Цель</strong> - написать чат-бота, который будет взаимодействовать с пользователями: приветствие, ответ на сообщения, эхо, получение прогноза погоды.</p>
+
+                            <p>Следующим шагом определите каким базовым функционалом должен обладать ваш бот.</p>
+                            <p><strong>Основные функции бота:</strong></p>
+                            <div class="command-example dark">
+                                <span class="command">/start</span> — приветствие<br>
+                                <span class="command">/help</span> — справка по командам<br>
+                                <span class="command">/echo &lt;текст&gt;</span> — повтор сообщения<br>
+                                <span class="command">/weather &lt;город&gt;</span> — погода в указанном городе
+                            </div>
+                        </div>
+
+                        <p>После ознакомиться с официальной документацией:</p>
+                        <ul class="doc-links">
+                            <li><a href="https://core.telegram.org/bots/api" target="_blank">Telegram Bot API</a></li>
+                            <li><a href="https://developer.mozilla.org/ru/docs/Web/JavaScript" target="_blank">JavaScript (MDN)</a></li>
+                            <li><a href="https://github.com/yagop/node-telegram-bot-api" target="_blank">node-telegram-bot-api (GitHub)</a></li>
                         </ul>
 
-                        <p>Далее составить список ключевых функций:</p>
+                        <p>Проанализировать 3–5 похожих ботов:</p>
                         <ul>
-                            <li>Запишите, какие команды и ответы будут базовыми (например, /start ,/help, эхо, запрос погоды).</li>
+                            <li>Протестируйте их команды и сценарии.</li>
+                            <li>Зафиксируйте удобные решения и UX-проблемы.</li>
                         </ul>
 
-                        <p>После ознакомиться с официальной документацией, чтобы понять доступные методы:</p>
-                        <ul>
-                            <li><strong>Telegram Bot API</strong>: <a href="https://core.telegram.org/bots/api" target="_blank">https://core.telegram.org/bots/api</a></li>
-                            <li><strong>JavaScript (MDN)</strong>: <a href="https://developer.mozilla.org/ru/docs/Web/JavaScript" target="_blank">https://developer.mozilla.org/ru/docs/Web/JavaScript</a></li>
-                            <li><strong>node-telegram-bot-api (GitHub)</strong>: <a href="https://github.com/yagop/node-telegram-bot-api" target="_blank">https://github.com/yagop/node-telegram-bot-api</a></li>
-                        </ul>
+                        <p>Сгруппировать требования:</p>
+                        <ol>
+                            <li>Обработка базовых команд (<code>/start</code>, <code>/help</code>).</li>
+                            <li>Реакция на текстовые сообщения по ключевым словам.</li>
+                            <li>Интеграция с внешними сервисами (погода, API).</li>
+                            <li>Логирование и хранение сообщений.</li>
+                        </ol>
 
-                        <p>Блок-схема работы бота выглядит следующим образом:</p>
-                        <blockquote>"получили сообщение → определили тип (команда/текст/API) → сформировали ответ → отправили ответ"</blockquote>
+                        <div class="blockquote dark">
+                            <p>Блок-схема работы бота:</p>
+                            <blockquote>"получили сообщение → определили тип (команда/текст/API) → сформировали ответ → отправили ответ"</blockquote>
+                        </div>
 
                         <h3>2. Подготовка окружения</h3>
                         <p>Для работы потребуется <strong>Node.js (≥14)</strong> и <strong>npm</strong>.</p>
 
                         <h4>2.1. Установка Node.js</h4>
                         <p><strong>Windows</strong>: скачайте Windows Installer (.msi) с <a href="https://nodejs.org" target="_blank">nodejs.org</a> и установите.</p>
-                        <p><strong>macOS</strong>: через Homebrew: brew install node или скачайте .pkg с сайта.</p>
+                        <p><strong>macOS</strong>: через Homebrew: <code>brew install node</code> или скачайте .pkg с сайта.</p>
                         <p><strong>Ubuntu/Debian</strong>:</p>
 
-                        <div class="code-block black">
-                <pre><code>curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+                        <div class="code-block dark">
+                <pre><code class="language-bash">curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
 sudo apt-get install -y nodejs</code></pre>
                         </div>
 
                         <p>Проверьте версии в терминале:</p>
-                        <div class="code-block black">
-                <pre><code>node -v  # должно быть v14 или выше
+                        <div class="code-block dark">
+                <pre><code class="language-bash">node -v  # должно быть v14 или выше
 npm -v</code></pre>
                         </div>
 
                         <h4>2.2. Создание проекта</h4>
-                        <div class="code-block black">
-                <pre><code>mkdir src && cd src
+                        <div class="code-block dark">
+                <pre><code class="language-bash">mkdir src && cd src
 npm init -y</code></pre>
                         </div>
 
                         <h4>2.3. Установка зависимостей</h4>
-                        <div class="code-block black">
-                            <pre><code>npm install node-telegram-bot-api dotenv axios winston mongodb</code></pre>
+                        <div class="code-block dark">
+                            <pre><code class="language-bash">npm install node-telegram-bot-api dotenv axios winston mongodb</code></pre>
                         </div>
 
                         <h4>2.4. Конфигурация окружения</h4>
-                        <p>Создайте файл .env в корне проекта:</p>
-                        <div class="code-block black">
-                <pre><code>BOT_TOKEN=ВАШ_ТОКЕН_БОТА
+                        <p>Создайте файл <code>.env</code> в корне проекта:</p>
+                        <div class="code-block dark">
+                <pre><code class="language-env">BOT_TOKEN=ВАШ_ТОКЕН_БОТА
 WEATHER_KEY=ВАШ_API_КЛЮЧ_OPENWEATHER
 MONGO_URL=Ваша_строка_подключения</code></pre>
                         </div>
 
-                        <!-- Продолжение остальных разделов в том же стиле -->
+                        <h3>Дополнения к настройке окружения</h3>
+
+                        <h4>Как указать правильный MONGO_URL</h4>
+
+                        <p><strong>Локальная MongoDB</strong>:</p>
+                        <div class="code-block dark">
+                            <pre><code class="language-env">MONGO_URL=mongodb://localhost:27017/telegram_bot</code></pre>
+                        </div>
+
+                        <p><strong>MongoDB Atlas</strong>:</p>
+                        <ol>
+                            <li>Зарегистрируйтесь на <a href="https://cloud.mongodb.com/" target="_blank">MongoDB Atlas</a>.</li>
+                            <li>Создайте кластер.</li>
+                            <li>Добавьте пользователя и IP-адреса в настройках.</li>
+                            <li>Подключение:</li>
+                        </ol>
+                        <div class="code-block dark">
+                            <pre><code class="language-env">MONGO_URL=mongodb+srv://ВАШ_ЛОГИН:ВАШ_ПАРОЛЬ@cluster0.mongodb.net/telegram_bot?retryWrites=true&w=majority</code></pre>
+                        </div>
+
+                        <h4>Возможные ошибки подключения MongoDB</h4>
+                        <ul>
+                            <li>Неверные логин/пароль.</li>
+                            <li>База данных недоступна.</li>
+                            <li>IP-адрес не разрешён.</li>
+                        </ul>
+
+                        <h4>Почему важно использовать .env</h4>
+                        <ul>
+                            <li>Защита секретных данных.</li>
+                            <li>Удобство переноса проекта.</li>
+                        </ul>
+
+                        <h4>Локальный запуск бота</h4>
+                        <div class="code-block dark">
+                            <pre><code class="language-bash">node index.js</code></pre>
+                        </div>
+
+                        <h4>Управление ботом через PM2</h4>
+                        <div class="table-wrapper dark">
+                            <table>
+                                <thead>
+                                <tr>
+                                    <th>Команда</th>
+                                    <th>Описание</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td><code>pm2 start index.js --name my-telegram-bot</code></td>
+                                    <td>Запустить бота</td>
+                                </tr>
+                                <tr>
+                                    <td><code>pm2 list</code></td>
+                                    <td>Показать процессы</td>
+                                </tr>
+                                <tr>
+                                    <td><code>pm2 logs my-telegram-bot</code></td>
+                                    <td>Логи бота</td>
+                                </tr>
+                                <tr>
+                                    <td><code>pm2 restart my-telegram-bot</code></td>
+                                    <td>Перезапуск бота</td>
+                                </tr>
+                                <tr>
+                                    <td><code>pm2 stop my-telegram-bot</code></td>
+                                    <td>Остановить бота</td>
+                                </tr>
+                                <tr>
+                                    <td><code>pm2 delete my-telegram-bot</code></td>
+                                    <td>Удалить процесс</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <p>Не забудьте сохранить процессы:</p>
+                        <div class="code-block dark">
+                <pre><code class="language-bash">pm2 save
+pm2 startup</code></pre>
+                        </div>
+
+                        <h3>3. Регистрация бота в Telegram через BotFather</h3>
+                        <img src="img/BotFather.png" alt="BotFather" class="dark-image">
+                        <ol>
+                            <li>Откройте Telegram и найдите <strong>@BotFather</strong>.</li>
+                            <li>Отправьте <code>/newbot</code>.</li>
+                            <li>Придумайте имя и username.</li>
+                            <li>Получите токен и вставьте в <code>.env</code>.</li>
+                        </ol>
+
+                        <h3>4. Структура проекта</h3>
+                        <div class="code-block dark">
+                <pre><code>src/
+├── index.js
+├── logger.js
+├── db.js
+├── .env
+├── package.json
+└── node_modules/</code></pre>
+                        </div>
 
                         <h3>5. Реализация основных функций бота</h3>
 
                         <h4>5.1. Подключение зависимостей</h4>
-                        <div class="code-block black">
-                <pre><code>require('dotenv').config();
+                        <div class="code-block dark">
+                <pre><code class="language-javascript">require('dotenv').config();
 const TelegramBot = require('node-telegram-bot-api');
 const axios = require('axios');
 const logger = require('./logger');
@@ -281,15 +404,125 @@ console.log('Бот запущен...');
 connect().then(() => console.log('MongoDB подключена'));</code></pre>
                         </div>
 
-                        <!-- Аналогично для остальных разделов с кодом -->
+                        <h4>5.2. Команда /start</h4>
+                        <img src="img/Start.png" alt="Команда start" class="dark-image">
+                        <div class="code-block dark">
+                <pre><code class="language-javascript">bot.onText(/\/start/, msg => {
+  const chatId = msg.chat.id;
+  const name = msg.from.first_name || 'друг';
+  bot.sendMessage(chatId, `Привет, ${name}! Я ваш бот. Введите /help для списка команд.`);
+});</code></pre>
+                        </div>
+
+                        <h4>5.3. Команда /help</h4>
+                        <img src="img/Help.png" alt="Команда help" class="dark-image">
+                        <div class="code-block dark">
+                            <div class="code-block dark">
+    <pre><code class="language-javascript">bot.sendMessage(msg.chat.id, 'Доступные команды:\n/start — приветствие\n/help — помощь\n/echo &lt;текст&gt; — эхо\n/weather &lt;город&gt; — погода');
+});</code></pre>
+                            </div>
+                        </div>
+
+                        <h4>5.4. Эхо-режим</h4>
+                        <img src="img/Aho.png" alt="Эхо-режим" class="dark-image">
+                        <div class="code-block dark">
+                <pre><code class="language-javascript">bot.onText(/echo (.+)/, (msg, match) => {
+  bot.sendMessage(msg.chat.id, `Вы сказали: ${match[1]}`);
+});</code></pre>
+                        </div>
+
+                        <h4>5.5. Ответ на текстовые сообщения</h4>
+                        <div class="code-block dark">
+                <pre><code class="language-javascript">bot.on('message', msg => {
+  if (msg.text && !msg.text.startsWith('/')) {
+    bot.sendMessage(msg.chat.id, `Вы написали: "${msg.text}"`);
+  }
+});</code></pre>
+                        </div>
+
+                        <h3>6. Интеграция с внешним API (погода)</h3>
+                        <img src="img/Weather.png" alt="Погода" class="dark-image">
+                        <div class="code-block dark">
+                <pre><code class="language-javascript">bot.onText(/\/weather (.+)/, async (msg, match) => {
+  const city = match[1];
+  try {
+    const res = await axios.get('https://api.openweathermap.org/data/2.5/weather', {
+      params: { q: city, appid: process.env.WEATHER_KEY, units: 'metric', lang: 'ru' }
+    });
+    bot.sendMessage(msg.chat.id, `Погода в ${city}: ${res.data.main.temp}°C, ${res.data.weather[0].description}`);
+  } catch {
+    bot.sendMessage(msg.chat.id, `Не удалось получить погоду для ${city}`);
+  }
+});</code></pre>
+                        </div>
+
+                        <h3>7. Логирование и хранение данных в MongoDB</h3>
+
+                        <h4>7.1. Модуль logger.js</h4>
+                        <div class="code-block dark">
+                <pre><code class="language-javascript">const { createLogger, format, transports } = require('winston');
+module.exports = createLogger({
+  level: 'info',
+  format: format.combine(
+    format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }),
+    format.printf(info => `${info.timestamp} [${info.level}]: ${info.message}`)
+  ),
+  transports: [
+    new transports.File({ filename: 'bot.log' }),
+    new transports.Console()
+  ]
+});</code></pre>
+                        </div>
+
+                        <h4>7.2. Модуль db.js</h4>
+                        <div class="code-block dark">
+                <pre><code class="language-javascript">const { MongoClient } = require('mongodb');
+const url = process.env.MONGO_URL;
+if (!url) { console.error('MONGO_URL не задан'); process.exit(1); }
+const client = new MongoClient(url, { useNewUrlParser: true, useUnifiedTopology: true });
+
+async function connect() {
+  await client.connect();
+  return client.db('telegram_bot');
+}
+module.exports = { connect };</code></pre>
+                        </div>
+
+                        <h4>7.3. Сохранение сообщений</h4>
+                        <div class="code-block dark">
+                <pre><code class="language-javascript">(async () => {
+  const db = await connect();
+  const messages = db.collection('messages');
+  bot.on('message', async msg => {
+    await messages.insertOne({
+      chatId: msg.chat.id,
+      user: msg.from.username || msg.from.id,
+      text: msg.text || '',
+      date: new Date(msg.date * 1000)
+    });
+    console.log('Message saved');
+  });
+})();</code></pre>
+                        </div>
+
+                        <h3>8. Развёртывание с помощью PM2</h3>
+                        <div class="code-block dark">
+                <pre><code class="language-bash">npm install -g pm2
+pm2 start index.js --name my-telegram-bot
+pm2 save
+pm2 startup
+pm2 list</code></pre>
+                        </div>
 
                         <h3>9. Модификация Telegram-бота: Добавление функции напоминаний</h3>
+
                         <h4>Цель модификации</h4>
                         <p>Добавить новую функцию — <strong>напоминания по таймеру</strong>, чтобы бот мог уведомлять пользователя через заданное количество минут.</p>
 
                         <h4>9.1. Изменения в коде</h4>
-                        <div class="code-block black">
-                <pre><code>bot.onText(/\/remind (\d+)\s+(.+)/, async (msg, match) => {
+                        <img src="img/Remind.png" alt="Напоминания" class="dark-image">
+                        <div class="code-block dark">
+                <pre><code class="language-javascript">bot.onText(/\/remind (\d+)\s+(.+)/, async (msg, match) => {
   const minutes = parseInt(match[1]);
   const text = match[2];
   const chatId = msg.chat.id;
@@ -319,74 +552,256 @@ connect().then(() => console.log('MongoDB подключена'));</code></pre>
                     </div>
                 </div>
             </div>
+                    </div>
+                </div>
+            </div>
 
             <style>
-                .telegram-report {
-                    font-family: Arial, sans-serif;
-                    line-height: 1.6;
-                    color: #333;
-                }
-
-                .telegram-report h2 {
-                    color: #2c3e50;
-                    border-bottom: 1px solid #ddd;
-                    padding-bottom: 10px;
-                }
-
-                .telegram-report h3 {
-                    color: #34495e;
-                    margin-top: 25px;
-                }
-
-                .telegram-report h4 {
-                    color: #7f8c8d;
-                    margin-top: 20px;
-                }
-
-                .code-block {
-                    margin: 15px 0;
-                    border-radius: 4px;
+                .accordion-item {
+                    border: 1px solid #333;
+                    border-radius: 5px;
+                    margin-bottom: 15px;
                     overflow: hidden;
                 }
 
-                .code-block.black {
-                    background-color: #000;
-                    color: #fff;
+                .accordion-header {
+                    padding: 15px 20px;
+                    background-color: #252525;
+                    color: #4fc3f7;
+                    cursor: pointer;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    font-weight: bold;
                 }
 
-                .code-block pre {
-                    margin: 0;
+                .accordion-header:hover {
+                    background-color: #2d2d2d;
+                }
+
+                .accordion-body {
+                    padding: 0;
+                    max-height: 0;
+                    overflow: hidden;
+                    transition: max-height 0.3s ease-out;
+                }
+
+                .accordion-item.active .accordion-body {
+                    max-height: 10000px;
+                }
+
+                .dark-theme {
+                    background-color: #1e1e1e;
+                    color: #e0e0e0;
+                    border-color: #333;
+                }
+
+                .telegram-report.dark {
+                    color: #e0e0e0;
+                    padding: 20px;
+                }
+
+                .telegram-report.dark h2 {
+                    color: #4fc3f7;
+                    border-bottom: 1px solid #333;
+                    padding-bottom: 10px;
+                    margin-top: 30px;
+                }
+
+                .telegram-report.dark h3 {
+                    color: #81c784;
+                    margin-top: 25px;
+                }
+
+                .telegram-report.dark h4 {
+                    color: #ffb74d;
+                    margin-top: 20px;
+                }
+
+                .command-block.dark {
+                    background: #2d2d2d;
+                    border-left: 4px solid #4fc3f7;
                     padding: 15px;
+                    margin: 15px 0;
+                    border-radius: 0 4px 4px 0;
+                }
+
+                .command-example.dark {
+                    background: #121212;
+                    color: #fff;
+                    border: 1px solid #333;
+                    padding: 12px 15px;
+                    border-radius: 4px;
+                    margin-top: 10px;
+                    line-height: 1.5;
+                }
+
+                .command {
+                    color: #4fc3f7;
+                    font-weight: bold;
+                }
+
+                .code-block.dark {
+                    background: #121212;
+                    border: 1px solid #333;
+                    padding: 15px;
+                    border-radius: 4px;
+                    margin: 15px 0;
                     overflow-x: auto;
-                    font-family: 'Courier New', monospace;
+                }
+
+                .code-block.dark pre {
+                    margin: 0;
+                    font-family: 'Fira Code', 'Courier New', monospace;
                     font-size: 14px;
                     line-height: 1.5;
-                    tab-size: 4;
+                    white-space: pre-wrap;
+                    color: #e0e0e0;
                 }
 
-                .telegram-report ul {
-                    padding-left: 25px;
-                }
-
-                .telegram-report li {
-                    margin-bottom: 8px;
-                }
-
-                .telegram-report blockquote {
-                    border-left: 4px solid #ddd;
-                    padding-left: 15px;
-                    color: #666;
-                    font-style: italic;
+                .blockquote.dark {
                     margin: 15px 0;
                 }
 
-                .telegram-report code:not(pre code) {
-                    background: #f0f0f0;
-                    padding: 2px 4px;
-                    border-radius: 3px;
-                    font-family: 'Courier New', monospace;
+                .blockquote.dark blockquote {
+                    border-left: 4px solid #81c784;
+                    color: #bdbdbd;
+                    padding-left: 15px;
+                    margin: 10px 0;
+                    font-style: italic;
+                }
+
+                .doc-links a {
+                    color: #4fc3f7;
+                    text-decoration: none;
+                }
+
+                .doc-links a:hover {
+                    text-decoration: underline;
+                }
+
+                .telegram-report.dark ul,
+                .telegram-report.dark ol {
+                    padding-left: 25px;
+                    margin: 10px 0;
+                }
+
+                .telegram-report.dark li {
+                    margin-bottom: 8px;
+                }
+
+                .table-wrapper.dark {
+                    margin: 15px 0;
+                    overflow-x: auto;
+                }
+
+                .table-wrapper.dark table {
+                    width: 100%;
+                    border-collapse: collapse;
+                    margin: 10px 0;
+                }
+
+                .table-wrapper.dark th,
+                .table-wrapper.dark td {
+                    padding: 10px;
+                    border: 1px solid #333;
+                    text-align: left;
+                }
+
+                .table-wrapper.dark th {
+                    background-color: #2d2d2d;
+                    color: #4fc3f7;
+                }
+
+                .table-wrapper.dark tr:nth-child(even) {
+                    background-color: #252525;
+                }
+
+                .table-wrapper.dark tr:hover {
+                    background-color: #333;
+                }
+
+                .dark-image {
+                    max-width: 100%;
+                    height: auto;
+                    margin: 10px 0;
+                    border-radius: 4px;
+                    filter: brightness(0.8) contrast(1.2);
+                }
+
+                /* Подсветка синтаксиса для темной темы */
+                .token.comment,
+                .token.prolog,
+                .token.doctype,
+                .token.cdata {
+                    color: #6a9955;
+                }
+                .token.punctuation {
+                    color: #d4d4d4;
+                }
+                .token.property,
+                .token.tag,
+                .token.boolean,
+                .token.number,
+                .token.constant,
+                .token.symbol,
+                .token.deleted {
+                    color: #b5cea8;
+                }
+                .token.selector,
+                .token.attr-name,
+                .token.string,
+                .token.char,
+                .token.builtin,
+                .token.inserted {
+                    color: #ce9178;
+                }
+                .token.operator,
+                .token.entity,
+                .token.url,
+                .language-css .token.string,
+                .style .token.string {
+                    color: #d4d4d4;
+                }
+                .token.atrule,
+                .token.attr-value,
+                .token.keyword {
+                    color: #569cd6;
+                }
+                .token.function,
+                .token.class-name {
+                    color: #dcdcaa;
+                }
+                .token.regex,
+                .token.important,
+                .token.variable {
+                    color: #d16969;
                 }
             </style>
+
+            <!-- Подключение Prism.js для подсветки синтаксиса -->
+            <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-tomorrow.min.css" rel="stylesheet">
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-bash.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-javascript.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-env.min.js"></script>
+
+            <script>
+                // Скрипт для работы аккордеона
+                document.querySelectorAll('.accordion-header').forEach(header => {
+                    header.addEventListener('click', () => {
+                        const item = header.parentElement;
+                        item.classList.toggle('active');
+                        const arrow = header.querySelector('.arrow');
+                        if (item.classList.contains('active')) {
+                            arrow.textContent = 'expand_less';
+                        } else {
+                            arrow.textContent = 'expand_more';
+                        }
+                    });
+                });
+            </script>
+
         </div>
     </section>
 </main>
