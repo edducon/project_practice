@@ -270,11 +270,6 @@ WEATHER_KEY=ВАШ_API_КЛЮЧ_OPENWEATHER
 MONGO_URL=Ваша_строка_подключения</code></pre>
                         </div>
 
-                        <div class="image-block">
-                            <img src="img/BotFather.png" alt="Регистрация бота в BotFather">
-                            <p class="image-caption">Рис. 1: Создание бота через BotFather</p>
-                        </div>
-
                         <h3>3. Регистрация бота в Telegram через BotFather</h3>
                         <ol>
                             <li>Откройте Telegram и найдите <strong>@BotFather</strong></li>
@@ -312,11 +307,6 @@ console.log('Бот запущен...');
 connect().then(() => console.log('MongoDB подключена'));</code></pre>
                         </div>
 
-                        <div class="image-block">
-                            <img src="img/Start.png" alt="Команда /start">
-                            <p class="image-caption">Рис. 2: Пример работы команды /start</p>
-                        </div>
-
                         <h4>5.2. Команда /start</h4>
                         <div class="code-block">
                 <pre><code>bot.onText(/\/start/, msg => {
@@ -326,21 +316,11 @@ connect().then(() => console.log('MongoDB подключена'));</code></pre>
 });</code></pre>
                         </div>
 
-                        <div class="image-block">
-                            <img src="img/Help.png" alt="Команда /help">
-                            <p class="image-caption">Рис. 3: Пример работы команды /help</p>
-                        </div>
-
                         <h4>5.3. Команда /help</h4>
                         <div class="code-block">
                 <pre><code>bot.onText(/\/help/, msg => {
   bot.sendMessage(msg.chat.id, 'Доступные команды:\n/start — приветствие\n/help — помощь\n/echo &lt;текст&gt; — эхо\n/weather &lt;город&gt; — погода\n/remind &lt;минуты&gt; &lt;текст&gt; — напоминание');
 });</code></pre>
-                        </div>
-
-                        <div class="image-block">
-                            <img src="img/Aho.png" alt="Команда echo">
-                            <p class="image-caption">Рис. 4: Пример работы команды echo</p>
                         </div>
 
                         <h4>5.4. Эхо-режим</h4>
@@ -351,10 +331,6 @@ connect().then(() => console.log('MongoDB подключена'));</code></pre>
                         </div>
 
                         <h3>6. Интеграция с внешним API (погода)</h3>
-                        <div class="image-block">
-                            <img src="img/Weather.png" alt="Команда weather">
-                            <p class="image-caption">Рис. 5: Пример работы команды weather</p>
-                        </div>
                         <div class="code-block">
                 <pre><code>bot.onText(/\/weather (.+)/, async (msg, match) => {
   const city = encodeURIComponent(match[1]); // Фикс: кодирование города для URL
@@ -413,11 +389,6 @@ module.exports = { connect };</code></pre>
 pm2 start index.js --name my-telegram-bot
 pm2 save
 pm2 startup</code></pre>
-                        </div>
-
-                        <div class="image-block">
-                            <img src="img/Remind.png" alt="Команда remind">
-                            <p class="image-caption">Рис. 6: Пример работы команды remind</p>
                         </div>
 
                         <h3>9. Модификация: Добавление функции напоминаний</h3>
